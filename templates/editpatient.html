@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container mt-4">
+    <h2>Edit Patient Details</h2>
+    <form action="{{ url_for('editpatient', patient_id=patient[0]) }}" method="POST">
+        <div class="form-group">
+            <label for="name">Patient Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ patient[1] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <input type="text" class="form-control" id="gender" name="gender" value="{{ patient[2] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" id="dob" name="dob" value="{{ patient[3] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="phno">Phone No.</label>
+            <input type="text" class="form-control" id="phno" name="phno" value="{{ patient[4] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ patient[5] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="city">Current City</label>
+            <input type="text" class="form-control" id="city" name="city" value="{{ patient[6] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="bloodgroup">Blood Group</label>
+            <input type="text" class="form-control" id="bloodgroup" name="bloodgroup" value="{{ patient[7] }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="{{ url_for('admindashboard') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

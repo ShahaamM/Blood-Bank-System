@@ -1,0 +1,38 @@
+{% extends 'base1.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h2>{{ the_title }}</h2>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                {% for row_title in the_row_titles %}
+                    <th>{{ row_title }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ the_data[1] }}</td>
+                <td>{{ the_data[2] }}</td>
+                <td>{{ the_data[3] }}</td>
+                <td>{{ the_data[4] }}</td>
+                <td>{{ the_data[5] }}</td>
+                <td>{{ the_data[6] }}</td>
+                {% if the_data[7] == None %}
+                    <td>None</td>
+                {% else %}
+                    <td>{{ the_data[7].strftime('%d-%m-%Y') }}</td>
+                {% endif %}
+                <td><a href='donationhistory/{{ the_data[0] }}' class="btn btn-primary">Click here</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a href='/mainmenu2' class="btn btn-secondary">Go to Main Menu</a>
+</div>
+
+{% endblock %}

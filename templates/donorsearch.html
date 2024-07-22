@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h2 class="mt-4 mb-4">Blood Donors for a Patient ID</h2>
+
+    <form method='POST' action='/receivedonorsearch' autocomplete="off">
+        <table class="table">
+            <tr>
+                <td>Patient ID:</td>
+                <td><input type='number' name='pid' class="form-control" required></td>
+            </tr>
+        </table>
+        <p><input value='Enter' type='submit' class="btn btn-primary"></p>
+    </form>
+
+    <p><a href='/mainmenu2' class="btn btn-secondary">Go to Main Menu</a></p>
+</div>
+
+{% endblock %}

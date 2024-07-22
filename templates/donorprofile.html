@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h2 class="mt-4 mb-4">Donor Profile</h2>
+
+    <form method='POST' action='/receivedonordetails' autocomplete="off">
+        <table class="table">
+            <tr>
+                <td>Name:</td>
+                <td><input type='text' name='dname' class="form-control" required></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <select name='dgender' class="form-control" required>
+                        <option value="">Please select</option>
+                        <option value='M'>M</option>
+                        <option value='F'>F</option>
+                        <option value='Other'>Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><input type='text' name='dphno' class="form-control" required></td>
+            </tr>
+            <tr>
+                <td>Current City:</td>
+                <td>
+                    <select name='dcity' class="form-control" required>
+                        <option value="">Please select</option>
+                        <option value='chennai'>Chennai</option>
+                        <option value='hyderabad'>Hyderabad</option>
+                        <option value='bangalore'>Bangalore</option>
+                        <option value='mumbai'>Mumbai</option>
+                        <option value='delhi'>Delhi</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Blood Group:</td>
+                <td>
+                    <select name='dbloodgroup' class="form-control" required>
+                        <option value="">Please select</option>
+                        <option value='A+'>A+</option>
+                        <option value='A-'>A-</option>
+                        <option value='B+'>B+</option>
+                        <option value='B-'>B-</option>
+                        <option value='O+'>O+</option>
+                        <option value='O-'>O-</option>
+                        <option value='AB+'>AB+</option>
+                        <option value='AB-'>AB-</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Any Health Issues (Optional):</td>
+                <td><input type='text' name='hissues' class="form-control"></td>
+            </tr>
+        </table>
+        <p><input value='Enter' type='submit' class="btn btn-primary"></p>
+    </form>
+
+    <p><a href='/mainmenu1' class="btn btn-secondary">Go to Main Menu</a></p>
+</div>
+
+{% endblock %}

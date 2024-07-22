@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h2>{{ the_title }}</h2>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                {% for row_title in the_row_titles %}
+                    <th>{{ row_title }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ the_data[0] }}</td>
+                <td>{{ the_data[1] }}</td>
+                <td>{{ the_data[2] }}</td>
+                <td>{{ the_data[3] }}</td>
+                <td>{{ the_data[4] }}</td>
+                <td>{{ the_data[5] }}</td>
+                <td>{{ the_data[6] }}</td>
+                <td>{{ the_data[7] }}</td>
+                
+                {% if the_data[8] == None %}
+                    <td>None</td>
+                {% else %}
+                    <td>{{ the_data[8].strftime('%d-%m-%Y') }}</td>
+                {% endif %}
+                
+                <td>{{ the_data[9] }}</td>
+                
+                {% if the_data[10] == None %}
+                    <td class="green">eligible to donate</td>
+                {% elif the_data[10] >= 84 %}
+                    <td class="green">eligible to donate</td>
+                {% else %}
+                    <td class="orange">eligible after {{ 84 - the_data[10] }} days</td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a href='/mainmenu1' class="btn btn-secondary">Go to Main Menu</a>
+</div>
+
+{% endblock %}

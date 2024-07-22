@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Blood Donation Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <span class="navbar-text text-primary font-weight-bold" style="padding-right: 1.25rem">Logged in as : {{ the_title2 }}</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-danger text-white" href="/adlogout">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{{ url_for('admindashboard') }}" class="card-link">
+                <div class="card bg-gradient-primary text-white mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Patients</h5>
+                        <p class="card-text display-4">{{ total_patients }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{ url_for('admindonorboard') }}" class="card-link">
+                <div class="card bg-gradient-success text-white mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Donors</h5>
+                        <p class="card-text display-4">{{ total_donors }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col">
+            <form class="form-inline" method="POST" action="{{ url_for('admindashboard') }}">
+                <input class="form-control mr-sm-2" type="search" name="search" value="{{ search_query }}" placeholder="Search Patients" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="col text-right">
+            <a href="/addpatientdetails" class="btn btn-primary">Add New Patient</a>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                {% for row_title in the_row_titles %}
+                    <th>{{ row_title }}</th>
+                {% endfor %}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log_row in the_data %}
+                <tr>
+                    {% for item in log_row %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+                    <td>
+                        <a href="{{ url_for('editpatient', patient_id=log_row[0]) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{{ url_for('deletepatient', patient_id=log_row[0]) }}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                        <style>
+                            .btn-donor{
+                            margin-top: 2px;
+                            }
+                        </style>
+                        <a href="{{ url_for('find_donor_route', patient_id=log_row[0]) }}" class="btn btn-info btn-md btn-donor">Find Donor</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

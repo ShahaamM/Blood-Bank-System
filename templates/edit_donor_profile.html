@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2>Edit Donor Profile</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ donor_profile[0] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender" name="gender" required>
+                <option value="Male" {% if donor_profile[1] == 'Male' %}selected{% endif %}>Male</option>
+                <option value="Female" {% if donor_profile[1] == 'Female' %}selected{% endif %}>Female</option>
+                <option value="Other" {% if donor_profile[1] == 'Other' %}selected{% endif %}>Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" name="phone" value="{{ donor_profile[2] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ donor_profile[3] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" id="dob" name="dob" value="{{ donor_profile[4] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="current_city">Current City</label>
+            <input type="text" class="form-control" id="current_city" name="current_city" value="{{ donor_profile[5] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="blood_group">Blood Group</label>
+            <input type="text" class="form-control" id="blood_group" name="blood_group" value="{{ donor_profile[6] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="health_issues">Health Issues</label>
+            <input type="text" class="form-control" id="health_issues" name="health_issues" value="{{ donor_profile[7] }}">
+        </div>
+        <div class="form-group">
+            <label for="last_donated_date">Last Donated Date</label>
+            <input type="date" class="form-control" id="last_donated_date" name="last_donated_date" value="{{ donor_profile[8] }}">
+        </div>
+        <div class="form-group">
+            <label for="availability">Availability</label>
+            <select class="form-control" id="availability" name="availability" required>
+                <option value="Availabile" {% if donor_profile[9] == 'Availabile' %}selected{% endif %}>Availabile</option>
+                <option value="Not Availabile" {% if donor_profile[9] == 'Not Availabile' %}selected{% endif %}>Not Availabile</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+        <p class="mt-3"><a href='/userdashboard'> < Go to main menu</a></p>
+
+</div>
+{% endblock %}

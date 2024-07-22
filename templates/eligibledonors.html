@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h2 class="mt-4 mb-4">Eligible Donors</h2>
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                {% for row_title in the_titles %}
+                    <th>{{ row_title }}</th>
+                {% endfor %}
+<!--                <th>Eligibility</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            {% for log_row in the_data %}
+                <tr>
+                    <td><a href='userdetails/{{ log_row[0] }}'>{{ log_row[0] }}</a></td>
+                    <td>{{ log_row[1] }}</td>
+                    <td>{{ log_row[2] }}</td>
+                    <td>{{ log_row[3] }}</td>
+                    <td>{{ log_row[4] }}</td>
+                    <td>
+                        {% if log_row[4] is none or log_row[4] >= 84 %}
+                            <span class="badge badge-success">Eligible</span>
+                        {% else %}
+                            <span class="badge badge-warning">Ineligible</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href='/mainmenu2' class="btn btn-secondary">Go to Main Menu</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,133 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+} */
+
+.container {
+    margin-top: 20px;
+}
+
+.jumbotron {
+    background-color: #343a40;
+    color: white;
+    padding: 2rem 1rem;
+    border-radius: 0.3rem;
+}
+
+.card {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 0.3rem;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.btn-primary, .btn-outline-primary, .btn-outline-warning, .btn-outline-info, .btn-outline-danger {
+    margin-bottom: 10px;
+}
+
+.list-group-item {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 0.3rem;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+
+body {
+    font-family:      Verdana, Geneva, Arial, sans-serif;
+    font-size:        medium;
+    background-color: tan;
+    margin-top:       5%;
+    margin-bottom:    5%;
+    margin-left:      10%;
+    margin-right:     10%;
+    border:           1px dotted gray;
+    padding:          10px 10px 10px 10px;
+  }
+  a {
+    text-decoration:  none; 
+    font-weight:      600; 
+  }
+  a:hover {
+    text-decoration:  underline;
+  }
+  a img {
+    border:           0;
+  }
+  h2 {
+    font-size:        150%;
+  }
+  h3 {
+  color: red;
+  }
+  table {
+    margin-left:      20px;
+    margin-right:     20px;
+    caption-side:     bottom;
+    border-collapse:  collapse;
+  }
+  td, th {
+    padding:          5px;
+    text-align:       left;
+  }
+  .copyright {
+    font-size:        75%;
+    font-style:       italic;
+  }
+  .slogan {
+    font-size:        75%;
+    font-style:       italic;
+  }
+  .confirmentry {
+    font-weight:      600; 
+  }
+  .red{
+    color : red
+  }
+  
+  .green{
+       background-color: green
+  }
+    
+  .orange{
+       background-color: orange
+  }
+  /*** Tables ***/
+  
+  table {
+  font-size:          1em;
+  background-color:   #fafcff;
+  border:             1px solid #909090;
+  color:              #2a2a2a;
+  padding:            5px 5px 2px;
+  border-collapse:    collapse;
+  }
+  
+  td, th {
+  border:             thin dotted gray;
+  }
+  
+  /*** Inputs ***/
+  input[type=text] {
+    font-size:        115%;
+    width:            30em;
+  }
+  input[type=submit] {
+    font-size:        125%;
+  }
+  select {
+    font-size:        125%;
+  }

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="jumbotron mt-4">
+        <h2 class="display-4">Search for Blood Donor</h2>
+        <p class="lead">Search for a blood donor using their username.</p>
+    </div>
+
+    <form method='POST' action='/receivedsearch' autocomplete="off">
+        <div class="form-group">
+            <label for="duname">Donor Username:</label>
+            <input type='text' class="form-control" id="duname" name='duname' required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <p class="mt-3"><a href='/mainmenu2'>Go to main menu</a></p>
+</div>
+
+{% endblock %}

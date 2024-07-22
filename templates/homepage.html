@@ -1,0 +1,40 @@
+{% extends 'base1.html' %}
+
+{% block body %}
+<div class="jumbotron mt-4" >
+    <h2 class="display-4">{{ the_title1 }}</h2>
+    <p class="lead">Welcome to the Blood Bank home page.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Admin Login</h5>
+                    <p class="card-text">Sign in as an admin to manage the blood bank system.</p>
+                    <a href="/adminlogin" class="btn btn-primary btn-block">Sign in as Admin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Donor Login</h5>
+                    <p class="card-text">Sign in as a donor to check your donation history and status.</p>
+                    <a href="/userlogin" class="btn btn-primary btn-block">Sign in as Donor</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Donor Registration</h5>
+                    <p class="card-text">Register as a donor to help save lives by donating blood.</p>
+                    <a href="/signup" class="btn btn-primary btn-block">Register as Donor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

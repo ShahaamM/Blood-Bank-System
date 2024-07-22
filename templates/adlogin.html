@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">{{ heading }}</h2>
+                <h4 class="text-center">Login as admin</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/adcheck">
+                    <div class="form-group">
+                        <label for="uname">Username:</label>
+                        <input id="uname" name="uname" type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="passwd">Password:</label>
+                        <input id="passwd" name="passwd" type="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Enter</button>
+                </form>
+                <p class="mt-3 text-center"><a href="/" class="btn btn-link">Go to home page</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

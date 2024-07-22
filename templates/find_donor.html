@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Blood Donation Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <span class="navbar-text text-primary font-weight-bold" style="padding-right: 1.25rem">Logged in as : {{ the_title2 }}</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-danger text-white" href="/adlogout">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2>Matching Donors for Patient ID: {{ patient_id }}</h2>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                {% for row_title in the_row_titles %}
+                    <th>{{ row_title }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for log_row in the_data %}
+                <tr>
+                    {% for item in log_row %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if not the_data %}
+        <div class="alert alert-info" role="alert">
+            No matching donors found.
+        </div>
+    {% endif %}
+    <a href="{{ url_for('admindashboard') }}" class="btn btn-primary mt-3">Back to Dashboard</a>
+</div>
+{% endblock %}

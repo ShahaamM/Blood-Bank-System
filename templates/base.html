@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blood Donation Management{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 5rem;
+        }
+
+
+    .bg-gradient-primary {
+        background: linear-gradient(45deg, #007bff, #00c6ff);
+    }
+
+    .bg-gradient-success {
+        background: linear-gradient(45deg, #28a745, #00c851);
+    }
+
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .card-link:hover .card {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    </style>
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="/">Blood Donation System</a>
+    <img src="static/nirmaan_logo.png" alt="Logo" class="navbar-brand ml-auto" style="height : 50px">
+</nav>
+
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

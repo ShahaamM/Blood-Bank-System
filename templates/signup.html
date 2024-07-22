@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4" style="width: 100%; max-width: 500px;">
+        <div class="card-body">
+            <h2 class="card-title text-center text-danger">{{ the_title }}</h2>
+            <h4 class="card-subtitle mb-4 text-center">Sign Up</h4>
+
+            <div id='match' class="text-danger text-center"></div>
+            <div id='length' class="text-danger text-center"></div>
+            <div id='age' class="text-danger text-center"></div>
+            <div id='email-error' class="text-danger text-center"></div>
+
+            <form method='POST' action='/receivesignup' autocomplete="off">
+                <div class="form-group">
+                    <label for="uname">Username:</label>
+                    <input type='text' class="form-control" name='uname' id="uname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type='email' class="form-control" name='email' id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="p1">Password (minimum 5 characters):</label>
+                    <input type='password' class="form-control" name='pswd' id='p1' required>
+                </div>
+                <div class="form-group">
+                    <label for="p2">Retype Password:</label>
+                    <input type='password' class="form-control" name='repswd' id='p2' required>
+                </div>
+                <div class="form-group">
+                    <label for="txtdob">Date of Birth:</label>
+                    <input type='date' class="form-control" name='dob' id='txtdob' required>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" name="agreement" value="ag" required>
+                    <label class="form-check-label" for="agreement">I agree to the <a href="{{ url_for('static', filename='terms.txt') }}" target="_blank">Terms and Conditions</a></label>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-block" onclick='return validateForm()'>Register</button>
+                </div>
+            </form>
+
+            <p class="text-center mt-3"><a href='/'>Go back to Home</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+function validateForm() {
+    var ageValid = fnCalculateAge();
+    var passwordsMatch = fnMatchPasswords();
+    var passwordLengthValid = fnCheckLength();
+    var emailValid = validateEmail();
+
+    return ageValid && passwordsMatch && passwordLengthValid && emailValid;
+}
+
+function fnCalculateAge() {
+    var userDateinput = document.getElementById('txtdob').value;
+    var birthDate = new Date(userDateinput);
+    var difference = Date.now() - birthDate.getTime();
+    var ageDate = new Date(difference);
+    var calculatedAge = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+    var ageValid = calculatedAge >= 18 && calculatedAge <= 65;
+    document.getElementById('age').innerHTML = ageValid ? '' : 'Age must be between 18 and 65';
+    return ageValid;
+}
+
+function fnMatchPasswords() {
+    var ps1 = document.getElementById('p1').value;
+    var ps2 = document.getElementById('p2').value;
+    var passwordsMatch = ps1 === ps2;
+    document.getElementById('match').innerHTML = passwordsMatch ? '' : 'Passwords don\'t match';
+    return passwordsMatch;
+}
+
+function fnCheckLength() {
+    var l1 = document.getElementById('p1').value.length;
+    var lengthValid = l1 >= 5;
+    document.getElementById('length').innerHTML = lengthValid ? '' : 'Password should be minimum 5 characters';
+    return lengthValid;
+}
+
+function validateEmail() {
+    var email = document.getElementById('email').value;
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var emailValid = re.test(String(email).toLowerCase());
+    document.getElementById('email-error').innerHTML = emailValid ? '' : 'Invalid email address';
+    return emailValid;
+}
+</script>
+
+{% endblock %}

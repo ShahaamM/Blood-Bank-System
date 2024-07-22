@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h2 class="mt-4 mb-4">Blood Donors for a Particular Blood Group and City</h2>
+
+    <form method='POST' action='/receivedonorsearch1' autocomplete="off">
+        <table class="table">
+            <tr>
+                <td>Blood Group:</td>
+                <td>
+                    <select name='pbloodgroup' class="form-control" required>
+                        <option value="">Please select</option>
+                        <option value='A+'>A+</option>
+                        <option value='A-'>A-</option>
+                        <option value='B+'>B+</option>
+                        <option value='B-'>B-</option>
+                        <option value='O+'>O+</option>
+                        <option value='O-'>O-</option>
+                        <option value='AB+'>AB+</option>
+                        <option value='AB-'>AB-</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td>
+                    <select name='pcity' class="form-control" required>
+                        <option value="">Please select</option>
+                        <option value='chennai'>Chennai</option>
+                        <option value='hyderabad'>Hyderabad</option>
+                        <option value='bangalore'>Bangalore</option>
+                        <option value='mumbai'>Mumbai</option>
+                        <option value='delhi'>Delhi</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <p><input value='Enter' type='submit' class="btn btn-primary"></p>
+    </form>
+
+    <p><a href='/mainmenu2' class="btn btn-secondary">Go to Main Menu</a></p>
+</div>
+
+{% endblock %}

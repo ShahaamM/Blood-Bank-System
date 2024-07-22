@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h2 class="mt-4 mb-4">{{ the_title }}</h2>
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                {% for row_title in the_titles %}
+                    <th>{{ row_title }}</th>
+                {% endfor %}
+                <th>Details</th>
+                <th>Donation History</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for the_data in log_row %}
+                <tr>
+                    <td>{{ the_data[0] }}</td>
+                    <td>{{ the_data[1] }}</td>
+                    <td>{{ the_data[2] }}</td>
+                    <td>{{ the_data[3] }}</td>
+                    <td>{{ the_data[4] }}</td>
+                    <td>{{ the_data[5] }}</td>
+                    <td>{{ the_data[6] }}</td>
+                    <td>{{ the_data[7] }}</td>
+                    <td>{{ the_data[8] }}</td>
+                    {% if the_data[9] is none %}
+                        <td>None</td>
+                    {% else %}
+                        <td>{{ the_data[9].strftime('%d-%m-%Y') }}</td>
+                    {% endif %}
+                    <td>{{ the_data[10] }}</td>
+                    <td><a href='logindetails/{{ the_data[0] }}' class="btn btn-info btn-sm">Details</a></td>
+                    <td><a href='dhistory/{{ the_data[0] }}' class="btn btn-success btn-sm">History</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href='/mainmenu2' class="btn btn-primary">Go to Main Menu</a></p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h2>{{ the_title }}</h2>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                {% for row_title in the_row_titles %}
+                    <th>{{ row_title }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ the_data[0] }}</td>
+                <td>{{ the_data[1] }}</td>
+                <td>{{ the_data[2] }}</td>
+                <td>{{ the_data[3].strftime('%d-%m-%Y') }}</td>
+                <td>{{ the_data[4].strftime('%d-%m-%Y') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a href='/mainmenu1' class="btn btn-secondary">Go to Main Menu</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="jumbotron mt-4">
+        <h2 class="display-4">Update Patient Details</h2>
+    </div>
+
+    <form method='POST' action='/receiveptupdate' autocomplete="off">
+        <input type="hidden" name='pid' value="{{ ptid }}">
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Name:</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{ name }}</p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="pphno" class="col-sm-2 col-form-label">Phone No.:</label>
+            <div class="col-sm-10">
+                <input type='text' class="form-control" id="pphno" name='pphno' value='{{ phone }}' required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="pemail" class="col-sm-2 col-form-label">Email:</label>
+            <div class="col-sm-10">
+                <input type='email' class="form-control" id="pemail" name='pemail' value='{{ email }}' required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="pcity" class="col-sm-2 col-form-label">Current City:</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="pcity" name='pcity' required>
+                    <option value="">Please select</option>
+                    <option value='chennai' {% if pcity == 'chennai' %} selected {% endif %}>Chennai</option>
+                    <option value='hyderabad' {% if pcity == 'hyderabad' %} selected {% endif %}>Hyderabad</option>
+                    <option value='bangalore' {% if pcity == 'bangalore' %} selected {% endif %}>Bangalore</option>
+                    <option value='mumbai' {% if pcity == 'mumbai' %} selected {% endif %}>Mumbai</option>
+                    <option value='delhi' {% if pcity == 'delhi' %} selected {% endif %}>Delhi</option>
+                </select>
+            </div>
+        </div>
+<!--        <div class="form-group row">-->
+<!--            <label for="pdisease" class="col-sm-2 col-form-label">Disease (optional):</label>-->
+<!--            <div class="col-sm-10">-->
+<!--                <input type='text' class="form-control" id="pdisease" name='pdisease' value='{{ pd }}'>-->
+<!--            </div>-->
+<!--        </div>-->
+        
+        <div class="form-group row">
+            <div class="col-sm-10 offset-sm-2">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </form>
+
+    <p class="mt-3"><a href='/mainmenu2'>Go to main menu</a></p>
+</div>
+
+{% endblock %}

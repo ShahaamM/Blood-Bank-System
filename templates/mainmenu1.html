@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Blood Donation Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <span class="navbar-text text-primary font-weight-bold" style="padding-right: 1.25rem">Logged in as : {{ the_title2 }}</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-danger text-white" href="/ulogout">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+<!--    <div class="card shadow-sm">-->
+<!--        <div class="card-body">-->
+<!--            <h2 class="card-title">{{ the_title1 }}<span class="text-danger">{{ the_title2 }}</span></h2>-->
+<!--            &lt;!&ndash; <h3 class="card-subtitle mb-3">Main Menu</h3> &ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="list-group mt-4">
+        <div class="list-group-item">
+            <h4>Add Records</h4>
+            <a href='/adddonordetails' class="btn btn-outline-primary btn-block mb-2">Add Donor Details</a>
+            <a href='/adddonationhistory' class="btn btn-outline-primary btn-block mb-2">Add Donation History</a>
+        </div>
+        <div class="list-group-item">
+            <h4>Update Records</h4>
+            <a href='/updatedonordetails' class="btn btn-outline-warning btn-block mb-2">Update Donor Details</a>
+        </div>
+        <div class="list-group-item">
+            <h4>View Records</h4>
+            <a href='/viewdonorlogindetails' class="btn btn-outline-info btn-block mb-2">View Donor Login Details</a>
+            <a href='/viewdonordetails' class="btn btn-outline-info btn-block mb-2">View Donor Details</a>
+            <a href='/viewdonationhistory' class="btn btn-outline-info btn-block mb-2">View Donation History</a>
+        </div>
+        <div class="list-group-item">
+            <h4>Delete Records</h4>
+            <a href='/deldonationhistory' class="btn btn-outline-danger btn-block mb-2">Delete Donation History</a>
+        </div>
+        <div class="list-group-item">
+            <h4>Delete Account</h4>
+            <a href='/delaccount' class="btn btn-outline-danger btn-block mb-2">Delete Your Account</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
